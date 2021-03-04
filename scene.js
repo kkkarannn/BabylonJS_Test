@@ -34,7 +34,11 @@ var createScene = function () {
     //camera.rotation()
     // This attaches the camera to the canvas
     camera.attachControl(canvas, false);
-
+    var background = new BABYLON.Layer("back", null, scene);
+    background.texture = new BABYLON.VideoTexture("video", "https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4", scene, false);
+    background.isBackground = true;
+    background.texture.level = 0;
+    background.texture.wAng = 0;
 
     scene.onPointerObservable.add((pointerInfo) => {      		
       switch (pointerInfo.type) {
